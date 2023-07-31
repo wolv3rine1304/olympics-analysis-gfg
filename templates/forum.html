@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forum.css') }}">
+    <title>Discussion Forum</title>
+</head>
+<body>
+    <div>
+        <!-- Navigation bar -->
+        <nav>
+            <img height="50px" width="100px" src="{{ url_for('static', filename='img/olympic_logo.jpg') }}" alt="olympic_logo">
+            <ul class="navbar">
+                <li><a href="/">Home</a></li>
+                <li><a href="/analysis">Analysis</a></li>
+                
+                <li><a href="/baytickets">Buy Ticket</a></li>
+                <li><a class="active" href="/forum">Forum</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Discussion Forum -->
+    <div class="top-bar">
+        <h3>
+            Discussion
+        </h3>
+    </div>
+    <div class="main">
+        <ol>
+            {% for thread in threads %}
+            <li class="row">
+                <a class="thread" href="/thread.html?{{ thread.id }}">
+                    <h4 class="title">{{ thread.title }}</h4>
+                    <p class="description">{{ thread.description }}</p>
+                </a>
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+    <div><a class="post" href="/thread">New Post</a></div>
+      <style>
+          .thread{
+              text-decoration: none;
+              color: black;
+          }
+          h1, h4, ol {
+              margin: 0;
+          }
+          p {
+              margin: 5px 0;
+          }
+          .top-bar {
+              margin: 10px;
+              background-color: #c2c2fc;
+              padding: 0 40px;
+              border-radius: 10px;
+          }
+          .main {
+              background-color: #F6F6EF;
+              padding: 10px 15px;
+          }
+          .row {
+              padding: 5px 0;
+          }
+          .bottom {
+              display: flex;
+              color: grey;
+              font-size: 12px;
+          }
+          .timestamp {
+              padding-right: 10px;
+          }
+          .post{
+            text-decoration: none;
+        cursor: pointer;
+        color: black;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #F6F6EF;
+        border: none;
+          }
+          .post:hover{
+            background-color: #c2c2fc;
+          }
+      </style>
+</body>
+</html>

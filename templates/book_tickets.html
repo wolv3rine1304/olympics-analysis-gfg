@@ -1,0 +1,111 @@
+<!-- book_tickets.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Tickets</title>
+</head>
+<body>
+    <style>
+        .my_tickets,.ticket{
+            display: flex;
+            justify-content: center;
+            background-color: #c2c2fc;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: black;
+         }
+         .container{
+            display: grid;
+            justify-content: center;
+         }
+        label{
+            display: flex;
+            padding: 5px 10px;
+            background-color: #c2c2fc;
+            margin: 5px 10px;
+            border-radius: 5px;
+            justify-content: center;
+          
+        }
+        button{
+            margin: 5px 10px;
+            padding : 5px 10px;
+            border-radius: 5px;
+            background-color: white;
+            border-style: none;
+        }
+        button:hover{
+            background-color: #c2c2fc;
+        }
+        nav{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: white;
+    justify-content: space-between;
+}
+  ul{
+    display: flex;
+    flex-wrap: wrap;
+    float: left ;
+    padding: 10px; 
+}
+nav ul li,a{
+    position: relative;
+    background-color: white;
+    padding: 10px;
+    list-style-type: none;
+    border-radius: 10px;
+}
+nav ul li a{
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+nav ul li a:hover,
+nav ul li a.active
+{
+    background-color: #c2c2fc;
+}
+
+    </style>
+
+<div>
+
+     <!-- Navigation bar -->
+     <nav>
+        <img height="50px" width="100px" src="{{ url_for('static', filename='img/olympic_logo.jpg') }}" alt="olympic_logo">
+        <ul  class="navbar">
+            <li><a href="/">Home</a></li>
+            <li><a href="http://localhost:8501/" target="_blank">Analysis</a></li>
+            
+            <li><a class="active" href="/baytickets">Buy Ticket</a></li>
+            <li><a href="/forum">Forum</a></li>
+        </ul>
+    </nav>
+</div>
+
+
+    <div class="ticket">
+        <h1>Book Tickets</h1>
+    </div>
+    <form action="{{ url_for('book_tickets') }}" method="post">
+        <div class="container">
+            <label for="first_name">Name</label>
+        <input type="text" id="first_name" name="first_name" required>
+        <br>
+        <label for="seat_number">Select Seat</label>
+        <select id="seat_number" name="seat_number" required>
+            {% for seat in available_seats %}
+                <option value="{{ seat['seat_number'] }}">{{ seat['seat_number'] }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <button type="submit">Book Ticket</button>
+        </div>
+    </form>
+    <br>
+    <a class="my_tickets" href="{{ url_for('my_tickets') }}">My Tickets</a>
+</body>
+</html>

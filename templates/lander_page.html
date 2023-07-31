@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lander_page.css') }}">
+    <title src="olympic_logo.jpg">Olympics Analysis</title>
+</head>
+<body class="container">
+    <div>
+
+        <!-- Navigation bar -->
+        <nav>
+            <img height="50px" width="" src="{{ url_for('static', filename='img/olympic_logo.jpg') }}" alt="olympic_logo">
+            <ul  class="navbar">
+                <li><a  class="active" href="/">Home</a></li>
+                <li><a href="https://olympics-analysis-4mlmgybjmtrwbnsc35tpex.streamlit.app/" target="_blank">Analysis</a></li>
+                
+                <li><a href="/baytickets">Buy Ticket</a></li>
+                <li><a href="/forum">Forum</a></li>
+            </ul>
+        </nav>
+
+        <!-- Top Athletes Slider -->
+        <div class="torch">
+            <img width="200px" height="400px" src="{{ url_for('static', filename='img/torch.png') }}">
+            <div class="table-container">
+                <table>
+                    <caption class="heading">Olympics 2024</caption>
+                    <tr>
+                        <th>Location</th>
+                        <th>Events</th>
+                        <th>Countries</th>
+                    </tr>
+                    <tr>
+                        <td>Paris</td>
+                        <td>329</td>
+                        <td>204</td>
+                    </tr>
+                    <tr>
+                        <th>Athletes</th>
+                        <th>Date</th>
+                    </tr>
+                    <tr>
+                        <td>10,005</td>
+                        <td>26 July 2024</td>
+                    </tr>
+                </table>
+            </div>
+
+        <!-- Slider Scroll -->
+        <div class="mediaScroll">
+            <div class="media_element"></div>
+            <div class="media_element"></div>
+            <div class="media_element"></div>
+            <div class="media_element"></div>
+            <div class="media_element"></div>             
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+*{
+    margin: 5px;
+    padding: 0%;
+    box-sizing: border-box;
+    }
+    nav{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        background-color: white;
+        justify-content: space-between;
+    }
+      ul{
+        display: flex;
+        flex-wrap: wrap;
+        float: left ;
+        padding: 10px; 
+    }
+    nav ul li,a{
+        position: relative;
+        background-color: white;
+        padding: 10px;
+        list-style-type: none;
+        border-radius: 10px;
+    }
+    nav ul li a{
+        text-decoration: none;
+        cursor: pointer;
+        color: black;
+    }
+    nav ul li a:hover,
+    nav ul li a.active
+    {
+        background-color: #c2c2fc;
+    }
+    
+        
+        

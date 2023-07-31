@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Tickets</title>
+</head>
+<body>
+    <style>
+        h1{
+            display: flex;
+            justify-content: center;
+            background-color: #c2c2fc;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: black;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .book_more_tickets{
+            margin: 5px 10px;
+            padding : 5px 10px;
+            border-radius: 5px;
+            background-color: white;
+            border-style: none;
+            color: black;
+         } 
+         .book_more_tickets:hover{
+            background-color: #c2c2fc;
+         }
+         /* Apply some basic styling to the table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+/* Style the table header cells */
+th {
+  background-color: #f2f2f2;
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Style the table data cells */
+td {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Add some hover effect on the table rows */
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+    </style>
+    <h1>My Tickets</h1>
+    {% if booked_tickets %}
+      <div class="container">
+         <table>
+            <tr>
+                <th>Ticket ID</th>
+                <th>Name</th>
+                <th>Seat Number</th>
+            </tr>
+            {% for ticket in booked_tickets %}
+                <tr>
+                    <td>{{ ticket.id }}</td>
+                    <td>{{ ticket.name }}</td>
+                    <td>{{ ticket.seat_number }}</td>
+                </tr>
+            {% endfor %}
+         </table>
+      </div>
+        {% else %}
+            <p>No tickets booked yet.</p>
+        {% endif %}
+
+        <br>
+        <a class="book_more_tickets" href="{{ url_for('book_tickets') }}">Book More Tickets</a>
+ </body>
+</html>

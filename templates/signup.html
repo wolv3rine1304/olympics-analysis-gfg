@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup</title>
+    <style>
+        *{
+    margin: 5px;
+    padding: 0%;
+    box-sizing: border-box;
+    }
+    nav{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        background-color: white;
+        justify-content: space-between;
+    }
+      ul{
+        display: flex;
+        flex-wrap: wrap;
+        float: left ;
+        padding: 10px; 
+    }
+    nav ul li,a{
+        position: relative;
+        background-color: white;
+        padding: 10px;
+        list-style-type: none;
+        border-radius: 10px;
+    }
+    nav ul li a{
+        text-decoration: none;
+        cursor: pointer;
+        color: black;
+    }
+    nav ul li a:hover,
+    nav ul li a.active
+    {
+        background-color: #c2c2fc;
+    }
+         .container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+        }
+        .container h2 {
+            text-align: center;
+        }
+        .container input[type="text"],
+        .container input[type="email"],
+        .container input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+        .container input[type="submit"] {
+            background-color: white;
+            color: black;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .container input[type="submit"]:hover {
+            background-color: #c2c2fc;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <!-- Navigation bar -->
+        <nav>
+            <img height="50px" width="100px" src="{{ url_for('static', filename='img/olympic_logo.jpg') }}" alt="olympic_logo">
+           <ul  class="navbar">
+           <ul  class="navbar">
+               <li><a href="/">Home</a></li>
+               <li><a href="/analysis">Analysis</a></li>
+               
+               <li><a  class="active" href="/baytickets">Buy Ticket</a></li>
+               <li><a href="/forum">Forum</a></li>
+           </ul>
+       </nav>
+   </div>
+    <div class="container">
+        <h2>Signup</h2>
+        <form action="/signup" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Signup">
+        </form>
+    </div>
+</body>
+</html>
